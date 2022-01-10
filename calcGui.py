@@ -14,35 +14,33 @@ class CalcGui:
 
         # calc output label
         self.label = Label(master, text=self.Calc.result)
-        self.label.pack()
+        self.label.grid(row=0, column=0, columnspan=4)
 
 
         #Create an Entry widget to accept User Input
         entry= Entry(master, width= 40)
         entry.focus_set()
-        entry.pack()
+        entry.grid(row=1, column=0, columnspan=4)
 
         #Create buttons for basic calc functions
         self.add_button = Button(master, text="Add", command=lambda: self.add(int(entry.get())))
-        self.add_button.pack()
+        self.add_button.grid(row=2, column=0)
 
         self.subtract_button = Button(master, text="Subtract", command=lambda: self.subtract(int(entry.get())))
-        self.subtract_button.pack()
+        self.subtract_button.grid(row=2, column=1)
 
         self.multiply_button = Button(master, text="Multiply", command=lambda: self.multiply(int(entry.get())))
-        self.multiply_button.pack()
+        self.multiply_button.grid(row=2, column=2)
 
         self.divide_button = Button(master, text="Divide", command=lambda: self.divide(int(entry.get())))
-        self.divide_button.pack()
+        self.divide_button.grid(row=2, column=3)
 
         self.clear_button = Button(master, text="Clear", command=lambda: self.clear(int(entry.get())))
-        self.clear_button.pack()
+        self.clear_button.grid(row=3, column=0, columnspan=2)
 
         self.close_button = Button(master, text="Close", command=master.quit)
-        self.close_button.pack()
+        self.close_button.grid(row=3, column=2, columnspan=2)
 
-    def greet(self):
-        print("Greetings!")
 
     def add(self, num):
         self.Calc.add(num)
