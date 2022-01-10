@@ -42,7 +42,7 @@ class CalcGui:
         self.multiply_button = Button(master, text="Multiply", command=lambda: self.multiply(int(self.entry.get())))
         self.divide_button = Button(master, text="Divide", command=lambda: self.divide(int(self.entry.get())))
 
-        self.clear_button = Button(master, text="Clear", command=lambda: self.clear())
+        self.clear_button = Button(master, text="Reset", command=lambda: self.clear())
         self.close_button = Button(master, text="Close", command=master.quit)
         self.delete_button = Button(master, text="Delete", command=lambda: self.delete())
 
@@ -50,7 +50,8 @@ class CalcGui:
 
         # Set grid for buttons
         self.label.grid(row=0, column=0, columnspan=4)
-        self.entry.grid(row=1, column=0, columnspan=4)
+        self.entry.grid(row=1, column=0, columnspan=3)
+        self.clear_button.grid(row=1, column=3,sticky='nesw')
         self.button_1.grid(row=2, column=0,sticky='nesw')
         self.button_2.grid(row=2, column=1,sticky='nesw')
         self.button_3.grid(row=2, column=2,sticky='nesw')
