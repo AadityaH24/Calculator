@@ -44,9 +44,31 @@ class CalcGui:
 
         self.clear_button = Button(master, text="Clear", command=lambda: self.clear())
         self.close_button = Button(master, text="Close", command=master.quit)
+        self.delete_button = Button(master, text="Delete", command=lambda: self.delete())
+
 
 
         # Set grid for buttons
+        self.label.grid(row=0, column=0, columnspan=4)
+        self.entry.grid(row=1, column=0, columnspan=4)
+        self.button_1.grid(row=2, column=0,sticky='nesw')
+        self.button_2.grid(row=2, column=1,sticky='nesw')
+        self.button_3.grid(row=2, column=2,sticky='nesw')
+        self.button_4.grid(row=3, column=0,sticky='nesw')
+        self.button_5.grid(row=3, column=1,sticky='nesw')
+        self.button_6.grid(row=3, column=2,sticky='nesw')
+        self.button_7.grid(row=4, column=0,sticky='nesw')
+        self.button_8.grid(row=4, column=1,sticky='nesw')
+        self.button_9.grid(row=4, column=2,sticky='nesw')
+        self.button_0.grid(row=5, column=0,sticky='nesw')
+        self.delete_button.grid(row=5, column=1,sticky='nesw')
+        self.close_button.grid(row=5, column=2,sticky='nesw')
+        self.add_button.grid(row=2, column=3,sticky='nesw')
+        self.subtract_button.grid(row=3, column=3,sticky='nesw')
+        self.multiply_button.grid(row=4, column=3,sticky='nesw')
+        self.divide_button.grid(row=5, column=3,sticky='nesw')
+
+
 
 
 
@@ -71,6 +93,11 @@ class CalcGui:
     # set value for entry
     def set_value(self, num):
         self.entry.insert('end', num)
+
+    # delete last character in entry
+    def delete(self):
+        self.entry.delete(self.entry.index('end')-1)
+
 
 root = Tk()
 my_gui = CalcGui(root)
